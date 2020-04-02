@@ -44,6 +44,7 @@ export default {
       this.total_channels = response.total_channels.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
     })
     .then(() => {
+        this.$emit('rmLoader', 'false')
         this.initialAnimation();
       }
     )

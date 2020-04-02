@@ -2,13 +2,13 @@
   <div id="app">
     <Loader v-if="loading" />
 
-    <div v-if="!loading">
+    <div>
       <div class="bg"></div>
       <h1>Internal stats/bot monitor</h1>
-      <MainStats />
+      <MainStats @rmLoader="rmLoader" />
 
       <h1>Latest bot & human editors activities</h1>
-      <Activity />
+      <Activity @rmLoader="rmLoader" />
     </div>
   </div>
 </template>
@@ -30,6 +30,11 @@ export default {
   },
   mounted() {
     setTimeout(() => this.loading = false, 2000)
+  },
+  methods: {
+    rmLoader() {
+      this.loading = false;
+    } 
   }
 };
 </script>

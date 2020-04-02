@@ -43,7 +43,7 @@ export default {
       this.activities = response.data.data;
     })
     .then(() => {
-      console.log(moment);
+      this.$emit('rmLoader', 'false')
       this.initialAnimation();
     })
   },
@@ -71,7 +71,6 @@ export default {
       });
     },
     convertTime(time) {
-      console.log(time);
       let utcTime = moment.utc(time);
       let localTime = moment(utcTime).local();
       return localTime.fromNow();
